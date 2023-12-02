@@ -25,7 +25,10 @@ export class App extends Component {
       >
         <ContactsForm onSubmit={this.onSubmit} />
         {/* <Filter />  */}
-        <ContactsList contacts={this.state.contacts} />
+        <ContactsList
+          contacts={filteredContacts}
+          onDelete={this.handleDelete}
+        />
       </div>
     );
   }

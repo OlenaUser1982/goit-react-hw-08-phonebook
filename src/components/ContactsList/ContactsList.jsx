@@ -4,6 +4,7 @@ import ContactsListItem from 'components/ContactsListItem/ContactsListItem';
 const ContactsList = ({ contacts }) => {
   return (
     <div>
+      <h2>Contacts</h2>
       {contacts.map(({ name, number, id }) => (
         <ContactsListItem name={name} number={number} key={id} />
       ))}
