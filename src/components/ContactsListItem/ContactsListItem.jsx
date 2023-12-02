@@ -1,15 +1,15 @@
-// import { ListItem, Span, Button } from './ContactsListItem.styled';
-
-export const ContactsListItem = ({ contact, onDelete }) => {
+const ContactsListItem = ({ contacts, onDelete }) => {
   const handleDelete = () => {
-    onDelete(contact.id);
+    onDelete(contacts.id);
   };
   return (
-    <ListItem>
-      <Span>{contact.name}: </Span>
-      {contact.number}
-      <Button onClick={handleDelete}>Delete</Button>
-    </ListItem>
+    <ul>
+      <li>
+        {contacts.name}:{contacts.number}
+      </li>
+      <button onClick={handleDelete}>Delete</button>
+    </ul>
   );
 };
+
 export default ContactsListItem;
