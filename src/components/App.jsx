@@ -14,6 +14,14 @@ export class App extends Component {
     filter: '',
   };
   onSubmit = newContact => {
+    const { name, number } = newContact;
+
+    const isExist = this.state.contacts.some(contact => contact.name === name);
+    if (isExist) {
+      alert(`${name} is already in contacts.`);
+      return;
+    }
+
     this.setState(prev => ({
       contacts: [...prev.contacts, { ...newContact, id: nanoid() }],
     }));
