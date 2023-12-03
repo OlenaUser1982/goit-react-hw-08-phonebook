@@ -1,3 +1,4 @@
+import { Form, Label } from './ContactsForm.styled';
 import { Component } from 'react';
 
 class ContactsForm extends Component {
@@ -11,17 +12,13 @@ class ContactsForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     if (!this.state.name.trim() || !this.state.number.trim()) return;
-    // if () {
-    //   alert(`${name} is already in contacts.`);
-    //   return;
-    // }
     this.props.onSubmit(this.state);
     this.setState({ name: '', number: '' });
   };
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
+      <Form onSubmit={this.handleSubmit}>
+        <Label>
           name
           <input
             name="name"
@@ -31,8 +28,8 @@ class ContactsForm extends Component {
             onChange={this.handleChange}
             pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           />
-        </label>
-        <label>
+        </Label>
+        <Label>
           number
           <input
             required
@@ -42,9 +39,9 @@ class ContactsForm extends Component {
             onChange={this.handleChange}
             pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
           />
-        </label>
+        </Label>
         <button type="submit"> Add contact</button>
-      </form>
+      </Form>
     );
   }
 }

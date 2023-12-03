@@ -3,7 +3,7 @@ const Filter = ({ filter, onChange }) => (
     type="text"
     value={filter}
     onChange={e => onChange(e)}
-    placeholder="Filter contacts by name:"
+    placeholder="Find contacts by name:"
   />
 );
 export default Filter;
