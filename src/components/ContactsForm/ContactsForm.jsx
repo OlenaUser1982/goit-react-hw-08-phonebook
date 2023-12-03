@@ -11,6 +11,10 @@ class ContactsForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     if (!this.state.name.trim() || !this.state.number.trim()) return;
+    // if () {
+    //   alert(`${name} is already in contacts.`);
+    //   return;
+    // }
     this.props.onSubmit(this.state);
     this.setState({ name: '', number: '' });
   };

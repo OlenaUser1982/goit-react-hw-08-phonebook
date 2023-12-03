@@ -1,13 +1,16 @@
 import ContactsListItem from 'components/ContactsListItem/ContactsListItem';
 
-// import { List } from './FriendsList.styled';
-const ContactsList = ({ contacts }) => {
+const ContactsList = ({ contacts, onDelete }) => {
   return (
-    <div>
-      {contacts.map(({ name, number, id }) => (
-        <ContactsListItem name={name} number={number} key={id} />
+    <ul>
+      {contacts.map(contact => (
+        <ContactsListItem
+          key={contact.id}
+          contact={contact}
+          onDelete={onDelete}
+        />
       ))}
-    </div>
+    </ul>
   );
 };
-export default ContactsListItem;
+export default ContactsList;

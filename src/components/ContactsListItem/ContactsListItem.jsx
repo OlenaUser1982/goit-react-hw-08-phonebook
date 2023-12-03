@@ -1,14 +1,13 @@
-const ContactsListItem = ({ contacts, onDelete }) => {
+const ContactsListItem = ({ contact, onDelete }) => {
   const handleDelete = () => {
-    onDelete(contacts.id);
+    onDelete(contact.id);
   };
+
   return (
-    <ul>
-      <li>
-        {contacts.name}:{contacts.number}
-      </li>
+    <li key={contact.id}>
+      {contact.name}: {contact.number}{' '}
       <button onClick={handleDelete}>Delete</button>
-    </ul>
+    </li>
   );
 };
 
