@@ -14,7 +14,7 @@ export class App extends Component {
     filter: '',
   };
   onSubmit = newContact => {
-    const { name, number } = newContact;
+    const { name } = newContact;
 
     const isExist = this.state.contacts.some(contact => contact.name === name);
     if (isExist) {
