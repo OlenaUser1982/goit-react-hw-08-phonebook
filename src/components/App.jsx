@@ -39,10 +39,11 @@ export class App extends Component {
         <ContactsForm onSubmit={this.onSubmit} />
         <h2>Contacts</h2>
         <Filter value={filter} onChange={this.handleChangeFilter} />
-        <ContactsList
+        {/* <ContactsList
           contacts={filteredContacts}
           onDelete={this.handleDelete}
-        />
+        /> */}
+        <ContactsList contacts={filteredContacts} onDelete={this.onDelete} />
       </div>
     );
   }
