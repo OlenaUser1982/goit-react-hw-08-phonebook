@@ -9,6 +9,7 @@ class ContactsForm extends Component {
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
   handleSubmit = e => {
     e.preventDefault();
     if (!this.state.name.trim() || !this.state.number.trim()) return;
