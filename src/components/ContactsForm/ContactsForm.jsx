@@ -1,10 +1,15 @@
 import { useState } from 'react';
 import { Form, Label } from './ContactsForm.styled';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectContact } from '../../redux/selectors';
+import { addContact } from '../../redux/contactSlice';
+import { nanoid } from '@reduxjs/toolkit';
 
-const ContactsForm = ({ onSubmit }) => {
+const ContactsForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-
+  const dispatch = useDispatch();
+  const contacts = useSelector(selectContact);
   const handleChange = e => {
     switch (e.target.name) {
       case 'name':
@@ -21,7 +26,15 @@ const ContactsForm = ({ onSubmit }) => {
   const handleSubmit = e => {
     e.preventDefault();
     if (!name.trim() || !number.trim()) return;
-    onSubmit({ name, number });
+    const isExist = contacts.some(
+      contact => contact.name.toLowerCase() === name.toLowerCase()
+    );
+
+    if (isExist) {
+      alert(`${name} is already in contacts.`);
+      return;
+    }
+    dispatch(addContact({ name, number, id: nanoid() }));
     setName('');
     setNumber('');
   };
