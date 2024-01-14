@@ -5,7 +5,7 @@ const ContactsListItem = ({ contact, onDelete }) => {
 
   return (
     <li key={contact.id}>
-      {contact.name}: {contact.phone}{' '}
+      {contact.name}: {contact.number}{' '}
       <button onClick={handleDelete}>Delete</button>
     </li>
   );

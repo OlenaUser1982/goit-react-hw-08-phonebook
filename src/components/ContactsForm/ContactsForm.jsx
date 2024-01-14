@@ -34,7 +34,7 @@ const ContactsForm = () => {
       alert(`${name} is already in contacts.`);
       return;
     }
-    dispatch(fetchAddNewContact({ name, phone: number }));
+    dispatch(fetchAddNewContact({ name, number }));
     setName('');
     setNumber('');
   };
