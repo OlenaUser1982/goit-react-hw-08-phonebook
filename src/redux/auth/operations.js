@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+// import axios from 'axios';
 import { login, logout, refreshUser, register } from 'service/authAPI';
 import { contactsAPI } from 'service/contactsApi';
 

@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 import { contactsAPI } from './contactsApi';
 export const register = async credentials => {
   try {
