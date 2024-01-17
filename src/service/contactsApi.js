@@ -1,9 +1,13 @@
 import axios from 'axios';
-const baseURL = 'https://connections-api.herokuapp.com/';
+const baseURL = 'https://connections-api.herokuapp.com';
 
 export const getAllContacts = async () => {
-  const result = await axios(`${baseURL}/contacts`);
-  return result;
+  try {
+    const result = await axios(`${baseURL}/contacts`);
+    return result;
+  } catch (error) {
+    console.log(error.message);
+  }
 };
 
 export const addNewContact = async data => {

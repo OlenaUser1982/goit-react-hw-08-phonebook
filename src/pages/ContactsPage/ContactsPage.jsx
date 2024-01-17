@@ -4,7 +4,7 @@ import ContactsList from 'components/ContactsList/ContactsList';
 
 import Filter from 'components/Filter/Filter';
 import { useDispatch } from 'react-redux';
-import { fetchGetAllContacts } from '../../redux/operations';
+import { fetchGetAllContacts } from '../../redux/contacts/operations';
 
 const ContactsPage = () => {
   const dispatch = useDispatch();

@@ -1,8 +1,8 @@
 import ContactsListItem from 'components/ContactsListItem/ContactsListItem';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { selectVisibleContacts } from '../../redux/selectors';
-import { fetchDeleteContact } from '../../redux/operations';
+import { selectVisibleContacts } from '../../redux/contacts/selectors';
+import { fetchDeleteContact } from '../../redux/contacts/operations';
 
 const ContactsList = () => {
   const dispatch = useDispatch();
