@@ -3,11 +3,13 @@ import ContactsForm from 'components/ContactsForm/ContactsForm';
 import ContactsList from 'components/ContactsList/ContactsList';
 
 import Filter from 'components/Filter/Filter';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchGetAllContacts } from '../../redux/contacts/operations';
+import { selectContact } from '../../redux/contacts/selectors';
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
+  const contacts = useSelector(selectContact);
   useEffect(() => {
     dispatch(fetchGetAllContacts());
   }, [dispatch]);
@@ -17,7 +19,7 @@ const ContactsPage = () => {
       <ContactsForm />
       <h2>Contacts</h2>
       <Filter />
-      <ContactsList />
+      {contacts && <ContactsList />}
     </div>
   );
 };
