@@ -29,7 +29,6 @@ const ContactsForm = () => {
     const isExist = contacts.some(
       contact => contact.name.toLowerCase() === name.toLowerCase()
     );
-
     if (isExist) {
       alert(`${name} is already in contacts.`);
       return;
