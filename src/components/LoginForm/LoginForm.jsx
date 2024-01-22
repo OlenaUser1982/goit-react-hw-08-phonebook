@@ -30,21 +30,17 @@ const LoginForm = () => {
         <input
           name="email"
           type="email"
-          required
           value={email}
           onChange={handleChange}
-          pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
         />
       </Label>
       <Label>
         Password
         <input
-          required
           name="password"
           type="password"
           value={password}
           onChange={handleChange}
-          pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
         />
       </Label>
       <button type="submit">Login</button>
