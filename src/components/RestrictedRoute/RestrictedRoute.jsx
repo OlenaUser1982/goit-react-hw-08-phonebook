@@ -11,7 +11,7 @@
 //   return isLoggedIn ? <Navigate to={redirectTo} /> : Component;
 // };
 
-import { Route, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectIsLoggedIn } from '../../redux/auth/selectors';
 
