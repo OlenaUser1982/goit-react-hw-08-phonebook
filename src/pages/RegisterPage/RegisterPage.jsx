@@ -1,6 +1,14 @@
+import { Loader } from 'components/Loader/Loader';
 import RegisterForm from 'components/RegisterForm/RegisterForm';
-
+import { useSelector } from 'react-redux';
+import { selectIsLoading } from '../../redux/auth/selectors';
 const RegisterPage = () => {
-  return <RegisterForm />;
+  const isLoading = useSelector(selectIsLoading);
+  return (
+    <>
+      {isLoading && <Loader />}
+      <RegisterForm />;
+    </>
+  );
 };
 export default RegisterPage;

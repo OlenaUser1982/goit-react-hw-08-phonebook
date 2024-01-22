@@ -7,3 +7,6 @@ export const selectIsLoggedIn = state => {
 export const selectIsRefreshing = state => {
   return state.auth.isRefreshing;
 };
+export const selectIsLoading = state => {
+  return state.auth.isLoading;
+};

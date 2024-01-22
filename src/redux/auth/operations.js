@@ -11,10 +11,11 @@ export const fetchRegister = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const result = await register(credentials);
+      console.log(result);
       setToken(result.data.token);
       return result.data;
     } catch (error) {
-      thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
@@ -26,7 +27,7 @@ export const fetchLogin = createAsyncThunk(
       setToken(result.data.token);
       return result.data;
     } catch (error) {
-      thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
@@ -35,14 +36,16 @@ export const fetchRefreshUser = createAsyncThunk(
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const token = state.auth.token;
-    if (!token) thunkAPI.rejectWithValue('user Unauthorization');
+    if (!token) {
+      return thunkAPI.rejectWithValue('user Unauthorization');
+    }
     setToken(token);
     try {
       const result = await refreshUser();
 
       return result.data;
     } catch (error) {
-      thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
@@ -54,7 +57,7 @@ export const fetchLogout = createAsyncThunk(
       setToken('');
       return result.data;
     } catch (error) {
-      thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

@@ -10,6 +10,7 @@ const ContactsForm = () => {
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();
   const contacts = useSelector(selectContact);
+
   const handleChange = e => {
     switch (e.target.name) {
       case 'name':

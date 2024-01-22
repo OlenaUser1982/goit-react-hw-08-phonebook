@@ -13,6 +13,7 @@ export const authSlice = createSlice({
     token: '',
     isLoggedIn: false,
     isRefreshing: false,
+    isLoading: false,
   },
 
   extraReducers: builder => {
@@ -21,24 +22,33 @@ export const authSlice = createSlice({
         state.user = payload.user;
         state.token = payload.token;
         state.isLoggedIn = true;
+        state.isLoading = false;
       })
       .addCase(fetchLogin.fulfilled, (state, { payload }) => {
         state.user = payload.user;
         state.token = payload.token;
         state.isLoggedIn = true;
+        state.isLoading = false;
       })
       .addCase(fetchLogout.fulfilled, state => {
         state.user = { name: '', email: '', password: '' };
         state.token = '';
         state.isLoggedIn = false;
+        state.isLoading = false;
       })
       .addCase(fetchRefreshUser.fulfilled, (state, { payload }) => {
         state.user = payload;
         state.isRefreshing = false;
         state.isLoggedIn = true;
+        state.isLoading = false;
       })
       .addCase(fetchRefreshUser.pending, state => {
         state.isRefreshing = true;
+        state.isLoading = true;
+      })
+      .addCase(fetchRefreshUser.rejected, state => {
+        state.isRefreshing = false;
+        state.isLoading = false;
       })
       .addMatcher(
         action => {

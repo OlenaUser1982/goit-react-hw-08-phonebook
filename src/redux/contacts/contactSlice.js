@@ -32,21 +32,24 @@ export const contactSlice = createSlice({
         state.contacts.items = [...state.contacts.items, payload];
         state.contacts.isLoading = false;
       })
+      .addCase(fetchAddNewContact.pending, (state, { payload }) => {
+        state.contacts.isLoading = true;
+      })
       .addCase(fetchDeleteContact.fulfilled, (state, { payload }) => {
         state.contacts.items = state.contacts.items.filter(contact => {
           return contact.id !== payload.id;
         });
         state.contacts.isLoading = false;
       })
-      .addMatcher(
-        action => {
-          action.type.endsWith('/pending');
-        },
-        (state, { payload }) => {
-          state.contacts.isLoading = true;
-          state.contacts.error = null;
-        }
-      )
+      // .addMatcher(
+      //   action => {
+      //     action.type.endsWith('/pending');
+      //   },
+      //   (state, { payload }) => {
+      //     state.contacts.isLoading = true;
+      //     state.contacts.error = null;
+      //   }
+      // )
       .addMatcher(
         action => {
           action.type.endsWith('/rejected');
