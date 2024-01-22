@@ -12,12 +12,6 @@ export const contactSlice = createSlice({
     filter: '',
   },
   reducers: {
-    // addContact: (state, { payload }) => {
-    //   state.contacts = [...state.contacts, payload];
-    // },
-    // deleteContact: (state, { payload }) => {
-    //   state.contacts = state.contacts.filter(({ id }) => id !== payload);
-    // },
     setFilter: (state, { payload }) => {
       state.filter = payload;
     },

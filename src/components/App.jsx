@@ -1,10 +1,7 @@
 import { useEffect } from 'react';
-// import ContactsForm from './ContactsForm/ContactsForm';
-// import ContactsList from './ContactsList/ContactsList';
 
-// import Filter from './Filter/Filter';
 import { useDispatch, useSelector } from 'react-redux';
-// import { fetchGetAllContacts } from '../redux/contacts/operations';
+
 import { Navigate, Route, Routes } from 'react-router-dom';
 import HomePage from 'pages/HomePage/HomePage';
 import Layout from './Layout/Layout';

@@ -11,7 +11,7 @@ export const fetchRegister = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const result = await register(credentials);
-      console.log(result);
+
       setToken(result.data.token);
       return result.data;
     } catch (error) {

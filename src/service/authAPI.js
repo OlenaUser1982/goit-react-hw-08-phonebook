@@ -1,4 +1,3 @@
-// import axios from 'axios';
 import { contactsAPI } from './contactsApi';
 export const register = async credentials => {
   const result = await contactsAPI.post(`/users/signup`, credentials);
