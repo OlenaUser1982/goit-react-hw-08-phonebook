@@ -52,20 +52,20 @@ export const authSlice = createSlice({
       })
       .addMatcher(
         action => {
-          action.type.endsWith('/pending');
+          return action.type.endsWith('/pending');
         },
         state => {
-          state.contacts.isLoading = true;
-          state.contacts.error = null;
+          state.isLoading = true;
+          state.error = null;
         }
       )
       .addMatcher(
         action => {
-          action.type.endsWith('/rejected');
+          return action.type.endsWith('/rejected');
         },
         (state, { payload }) => {
-          state.contacts.isLoading = false;
-          state.contacts.error = payload;
+          state.isLoading = false;
+          state.error = payload;
         }
       );
   },

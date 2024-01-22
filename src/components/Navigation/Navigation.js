@@ -7,7 +7,12 @@ export const Navigation = () => {
   return (
     <nav>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink
+          style={{ backgroundColor: 'rgb(49, 130, 206)', color: 'white' }}
+          to="/"
+        >
+          Home
+        </NavLink>
       </li>
       {isLoggedIn && (
         <li>

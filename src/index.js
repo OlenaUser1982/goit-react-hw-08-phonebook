@@ -1,4 +1,5 @@
 import React from 'react';
+import { ChakraProvider } from '@chakra-ui/react';
 import ReactDOM from 'react-dom/client';
 import App from 'components/App';
 import './index.css';
@@ -10,7 +11,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     {/* <BrowserRouter basename="/goit-react-hw-08-phonebook"> */}
     <BrowserRouter>
-      <App />
+      <ChakraProvider>
+        <App />
+      </ChakraProvider>
     </BrowserRouter>
   </Provider>
 );

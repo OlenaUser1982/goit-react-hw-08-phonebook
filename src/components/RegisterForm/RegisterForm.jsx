@@ -1,7 +1,14 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchRegister } from '../../redux/auth/operations';
-
+import { Button } from '@chakra-ui/react';
+import {
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  FormHelperText,
+  Input,
+} from '@chakra-ui/react';
 const RegisterForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -28,29 +35,39 @@ const RegisterForm = () => {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <label>
-        Name
-        <input name="name" type="text" value={name} onChange={handleChange} />
-      </label>
-      <label>
-        Email
-        <input
+      <FormControl>
+        <FormLabel>Name</FormLabel>
+        <Input
+          name="name"
+          type="text"
+          value={name}
+          style={{ width: '300px' }}
+          onChange={handleChange}
+        />
+      </FormControl>
+      <FormControl>
+        <FormLabel>Email</FormLabel>
+        <Input
           name="email"
           type="email"
           value={email}
+          style={{ width: '300px' }}
           onChange={handleChange}
         />
-      </label>
-      <label>
-        Password
-        <input
+      </FormControl>
+      <FormControl>
+        <FormLabel> Password</FormLabel>
+        <Input
           name="password"
           type="password"
           value={password}
+          style={{ width: '300px' }}
           onChange={handleChange}
         />
-      </label>
-      <button type="submit">Register</button>
+      </FormControl>
+      <Button type="submit" colorScheme="blue">
+        Register
+      </Button>
     </form>
   );
 };

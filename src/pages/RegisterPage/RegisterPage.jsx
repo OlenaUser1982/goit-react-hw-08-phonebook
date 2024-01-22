@@ -7,7 +7,7 @@ const RegisterPage = () => {
   return (
     <>
       {isLoading && <Loader />}
-      <RegisterForm />;
+      <RegisterForm />
     </>
   );
 };
