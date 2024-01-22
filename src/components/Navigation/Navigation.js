@@ -8,7 +8,12 @@ export const Navigation = () => {
     <nav>
       <li>
         <NavLink
-          style={{ backgroundColor: 'rgb(49, 130, 206)', color: 'white' }}
+          style={{
+            backgroundColor: 'rgb(49, 130, 206)',
+            color: 'white',
+            borderRadius: '4px',
+            width: '50px',
+          }}
           to="/"
         >
           Home
@@ -16,16 +21,46 @@ export const Navigation = () => {
       </li>
       {isLoggedIn && (
         <li>
-          <NavLink to="/contacts">Contacts</NavLink>
+          <NavLink
+            style={{
+              backgroundColor: 'rgb(49, 130, 206)',
+              color: 'white',
+              borderRadius: '4px',
+              width: '50px',
+            }}
+            to="/contacts"
+          >
+            Contacts
+          </NavLink>
         </li>
       )}
       {!isLoggedIn && (
         <>
           <li>
-            <NavLink to="/register">Register</NavLink>
+            <NavLink
+              style={{
+                backgroundColor: 'rgb(49, 130, 206)',
+                color: 'white',
+                borderRadius: '4px',
+                width: '50px',
+              }}
+              to="/register"
+            >
+              Register
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/login">Login</NavLink>
+            <NavLink
+              style={{
+                backgroundColor: 'rgb(49, 130, 206)',
+                color: 'white',
+                borderRadius: '4px',
+                width: '50px',
+              }}
+              to="/login"
+            >
+              Login
+            </NavLink>
           </li>{' '}
         </>
       )}

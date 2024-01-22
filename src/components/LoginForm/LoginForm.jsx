@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Form, Label } from './LoginForm.styled';
 import { useDispatch } from 'react-redux';
 import { fetchLogin } from '../../redux/auth/operations';
 
@@ -23,27 +24,31 @@ const LoginForm = () => {
     dispatch(fetchLogin({ email, password }));
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
+    <Form onSubmit={handleSubmit}>
+      <Label>
         Email
         <input
           name="email"
           type="email"
+          required
           value={email}
           onChange={handleChange}
+          pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
         />
-      </label>
-      <label>
+      </Label>
+      <Label>
         Password
         <input
+          required
           name="password"
           type="password"
           value={password}
           onChange={handleChange}
+          pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
         />
-      </label>
+      </Label>
       <button type="submit">Login</button>
-    </form>
+    </Form>
   );
 };
 export default LoginForm;
