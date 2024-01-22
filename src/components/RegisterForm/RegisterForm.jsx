@@ -2,13 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchRegister } from '../../redux/auth/operations';
 import { Button } from '@chakra-ui/react';
-import {
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  FormHelperText,
-  Input,
-} from '@chakra-ui/react';
+import { FormControl, FormLabel, Input } from '@chakra-ui/react';
 const RegisterForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
